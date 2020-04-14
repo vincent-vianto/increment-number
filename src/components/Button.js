@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "../App.css"
+import styled from "styled-components"
 
 
 class Increment extends Component {
@@ -26,11 +27,11 @@ class Increment extends Component {
     render(){
         return(
             <div>
-                <button style={buttonStyle} onClick={this.DecreaseItem}>-</button>
-                <input style ={inputStyle} value={this.state.clicks} readonly="readonly"/>
-                <button style={buttonStyle} onClick={this.IncrementItem}>+</button>
+                <Button onClick={() => this.DecreaseItem()}>-</Button>
+                <Input  value={this.state.clicks} readonly="readonly"/>
+                <Button onClick={() => this.IncrementItem()}>+</Button>
                 <br/>
-                <button style={buttonStyle} onClick={this.ResetItem}>Reset</button>
+                <Button  onClick={() => this.ResetItem()}>Reset</Button>
             </div>
         )
     }
@@ -38,16 +39,19 @@ class Increment extends Component {
 
 export default Increment
 
-const buttonStyle= {
-    width : "70px",
-    height: "40px",
-    borderColor:"Pink",
-    backgroundColor:"Pink"
-}
+const Button = styled.button`
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  background-color: palevioletred ;
+`;
 
-const inputStyle= {
-    width : "300px",
-    height: "35px",
-    borderColor:"Pink"
-    
-}
+const Input = styled.input`
+  padding: 15px;
+  color: "palevioletred";
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
